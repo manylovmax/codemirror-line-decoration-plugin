@@ -9,8 +9,13 @@
   <body>
     <div id="editor"></div>
     <script type="module">
-      import {setupEditor} from '/src/widget.js';
-      setupEditor("#editor");
+      import {setupEditor, getEditorValue, setEditorValue, getEditorSelection, getEditorCursorPosition} from '/src/widget.js';
+      window.wvCodemirror6 = {};
+      window.wvCodemirror6.setupEditor = setupEditor;
+      window.wvCodemirror6.getEditorValue = getEditorValue;
+      window.wvCodemirror6.setEditorValue = setEditorValue;
+      window.wvCodemirror6.getEditorSelection = getEditorSelection;
+      window.wvCodemirror6.getEditorCursorPosition = getEditorCursorPosition;
     </script> 
   </body>
 </html>
