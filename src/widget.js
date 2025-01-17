@@ -45,7 +45,7 @@ const linePlugin = ViewPlugin.fromClass(class {
 
 export function setupEditor(selector) {
   let startState = EditorState.create({
-    doc: "==\nHello World\n==\n123\n==",
+    // doc: "==\nHello World\n==\n123\n==",
     extensions: [basicSetup, linePlugin]
   });
 
@@ -62,10 +62,14 @@ export function getEditorValue(editorView) {
 }
 
 export function setEditorValue(editorView, newValue) {
-  let transaction = editorView.state.update({changes: {from: 0, to: editorView.state.doc.length, insert: newValue}})
-  editorView.dispatch(transaction)
+  let transaction = editorView.state.update({changes: {from: 0, to: editorView.state.doc.length, insert: newValue}});
+  editorView.dispatch(transaction);
 }
 
 export function getEditorSelection(editorView) {
-  return editorView.state.sliceDoc(editorView.state.selection.main.from, editorView.state.selection.main.to)
+  return editorView.state.sliceDoc(editorView.state.selection.main.from, editorView.state.selection.main.to);
+}
+
+export function getEditorCursorPosition(editorView) {
+  return editorView.state.selection.main.head;
 }
