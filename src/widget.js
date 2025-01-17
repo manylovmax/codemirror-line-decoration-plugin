@@ -13,7 +13,7 @@ import {basicSetup} from "codemirror";
 
 class lineWidget extends WidgetType {
   toDOM() {
-    let wrap = document.createElement("div");
+    let wrap = document.createElement("span");
     wrap.className = "cm-line-decorator";
     return wrap;
   }
@@ -49,9 +49,23 @@ export function setupEditor(selector) {
     extensions: [basicSetup, linePlugin]
   });
 
-  let view = new EditorView({
+  let editorView = new EditorView({
     state: startState,
     parent: document.querySelector(selector)
   });
 
+  return editorView;
+}
+
+export function getEditorValue(editorView) {
+  return editorView.state.doc.toString();
+}
+
+export function setEditorValue(editorView, newValue) {
+  let transaction = editorView.state.update({changes: {from: 0, to: editorView.state.doc.length, insert: newValue}})
+  editorView.dispatch(transaction)
+}
+
+export function getEditorSelection(editorView) {
+  return editorView.state.sliceDoc(editorView.state.selection.main.from, editorView.state.selection.main.to)
 }
