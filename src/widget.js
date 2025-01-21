@@ -9,6 +9,7 @@
 import {EditorState} from "@codemirror/state"
 import {EditorView, MatchDecorator, WidgetType, Decoration, ViewPlugin} from "@codemirror/view"
 import {basicSetup} from "codemirror";
+import {markdown} from "@codemirror/lang-markdown";
 
 
 class lineAnswerWidget extends WidgetType {
@@ -125,7 +126,7 @@ const lineEndDecoratorPlugin = ViewPlugin.fromClass(class {
 export function setupEditor(selector) {
   let startState = EditorState.create({
     // doc: "==1\nприведи текст к верхнему регистру\n==2\nPELL\n===",
-    extensions: [basicSetup, EditorView.lineWrapping, lineTaskDecoratorPlugin, lineAnswerDecoratorPlugin, lineEndDecoratorPlugin]
+    extensions: [basicSetup, EditorView.lineWrapping, markdown(), lineTaskDecoratorPlugin, lineAnswerDecoratorPlugin, lineEndDecoratorPlugin]
   });
 
   let editorView = new EditorView({
