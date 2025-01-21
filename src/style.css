@@ -1,6 +1,30 @@
 .cm-line-decorator {
   display: inline-block;
-  background-color: black;
   width: 100%;
   height: 1em;
+}
+
+.cm-line-decorator * {
+  vertical-align: middle;
+}
+
+.cm-line-decorator__icon-wrapper {
+  height: 1em;
+  color: #afafaf;
+}
+
+.cm-line-decorator__split-line {
+  display: inline-block;
+  background-color: #afafaf;
+  width: calc(100% - 36px);
+  margin-left: 20px;
+  height: 1px;
+}
+
+.cm-line-decorator__split-line-end {
+  display: inline-block;
+  background-color: #afafaf;
+  width: calc(100% - 36px);
+  margin-left: 36px;
+  height: 1px;
 }

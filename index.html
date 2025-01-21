@@ -7,7 +7,7 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="editor"></div>
+    <div id="editor-wrapper"></div>
     <script type="module">
       import {setupEditor, getEditorValue, setEditorValue, getEditorSelection, getEditorCursorPosition} from '/src/widget.js';
       window.wvCodemirror6 = {};
@@ -16,6 +16,8 @@
       window.wvCodemirror6.setEditorValue = setEditorValue;
       window.wvCodemirror6.getEditorSelection = getEditorSelection;
       window.wvCodemirror6.getEditorCursorPosition = getEditorCursorPosition;
+
+      // setupEditor("#editor-wrapper");
     </script> 
   </body>
 </html>
